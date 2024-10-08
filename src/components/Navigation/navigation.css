@@ -1,0 +1,21 @@
+.navbar-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    border-right: 2px solid darkgray;
+}
+
+.navbar-main .navbar-item {
+    display: block;
+    padding: 10px 0;
+    margin: 5px 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+.navbar-main .navbar-item:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
