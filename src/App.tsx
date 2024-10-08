@@ -6,10 +6,14 @@ function App() {
 
   	return (
 		<BrowserRouter>
-			<Navigation />
-			<Routes>
-				<Route path="/" />
-			</Routes>
+			<div className="container">
+				<Navigation />
+				<main className="content">
+					<Routes>
+						{/* <Route path="/" element={} /> */}
+					</Routes>
+				</main>
+			</div>
 		</BrowserRouter>
   	);
 }
