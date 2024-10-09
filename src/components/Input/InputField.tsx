@@ -1,19 +1,6 @@
 import React, { useState, ChangeEvent, FocusEvent } from 'react';
 import './input.css';
-
-type InputFieldProps = {
-    type: 'text' | 'email' | 'password' | 'number' | 'date';
-    label?: string;
-    value?: string;
-    required?: boolean;
-    minLength?: number;
-    maxLength?: number;
-    pattern?: RegExp;
-    placeholder?: string;
-    disabled?: boolean;
-    readOnly?: boolean;
-    onChange?: (value: string) => void;
-};
+import InputFieldProps from './inputProps';
 
 const InputField: React.FC<InputFieldProps> = ({
     type,
@@ -49,19 +36,21 @@ const InputField: React.FC<InputFieldProps> = ({
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
         setError(validate(newValue));
-        if (onChange) {
-            onChange(newValue);
-        }
+        onChange?.(newValue);
     };
 
     const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
         setError(validate(event.target.value));
     };
 
+    // Générer un id unique pour l'input si un label est fourni
+    const inputId = label ? `input-${label.replace(/\s+/g, '-').toLowerCase()}` : undefined;
+    
     return (
         <div className="input-field-container">
-            {label && <label className="input-label">{label}</label>}
+            {label && <label htmlFor={inputId} className="input-label">{label}</label>}
             <input
+                id={inputId}
                 type={type}
                 value={value}
                 placeholder={placeholder}
@@ -71,6 +60,9 @@ const InputField: React.FC<InputFieldProps> = ({
                 readOnly={readOnly}
                 className={`input-field ${error ? 'error' : ''}`}
                 aria-invalid={!!error}
+                required={required}
+                minLength={minLength ?? undefined}  // Valeur numérique ou undefined si minLength n'est pas défini
+                maxLength={maxLength ?? undefined}  // Valeur numérique ou undefined si maxLength n'est pas défini
             />
             {error && <span className="error-message">{error}</span>}
         </div>
