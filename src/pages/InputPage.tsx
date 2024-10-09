@@ -4,7 +4,7 @@ import InputField from '../components/Input/InputField';
 const InputPage: React.FC = () => {
   return (
     <div style={{ margin: '20px' }}>
-      <h2>Input Page</h2>
+      <h2 style={{ margin: '20px 0px 20px 0px' }}>Input Component</h2>
       
       <InputField
         type="text"
