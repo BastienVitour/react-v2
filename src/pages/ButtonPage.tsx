@@ -10,12 +10,14 @@ interface ButtonReducerState {
     text: string;
     variant: string;
     disabled: boolean;
+    size: string;
 }
 
 const initialState: ButtonReducerState = {
     text: "Button",
     variant: "primary",
-    disabled: false
+    disabled: false,
+    size: "md"
 }
 
 function buttonReducer(state: ButtonReducerState, action: ButtonReducerAction) {
@@ -35,6 +37,11 @@ function buttonReducer(state: ButtonReducerState, action: ButtonReducerAction) {
                 ...state,
                 disabled: action.payload
             };
+        case "SET_BUTTON_SIZE":         
+            return {
+                ...state,
+                size: action.payload
+            };
         default:
             throw new Error();
     }
@@ -46,7 +53,7 @@ export default function ButtonPage() {
 
     return(
         <div>
-            <Button text={state.text} variant={state.variant} disabled={state.disabled} />
+            <Button text={state.text} variant={state.variant} disabled={state.disabled} size={state.size} />
             <input onChange={(e) => dispatch({ type: "SET_BUTTON_TEXT", payload: e.target.value })} />
             <select defaultValue="primary" onChange={(e) => dispatch({ type: "SET_BUTTON_VARIANT", payload: e.target.value })}>
                 <option value="primary">Primary</option>
@@ -63,6 +70,13 @@ export default function ButtonPage() {
                 type="checkbox" 
                 onChange={(e) => dispatch({ type: "SET_BUTTON_DISABLED", payload: e.target.checked })} 
             />
+            <select defaultValue="md" onChange={(e) => dispatch({ type: "SET_BUTTON_SIZE", payload: e.target.value })}>
+                <option value="xs">Extra small</option>
+                <option value="sm">Small</option>
+                <option value="md">Medium</option>
+                <option value="lg">Large</option>
+                <option value="xl">Extra large</option>
+            </select>
         </div>
     );
 
