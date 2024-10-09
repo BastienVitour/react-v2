@@ -3,6 +3,7 @@ import './App.css'
 import Navigation from './components/Navigation/Navigation';
 import InputPage from './pages/InputPage';
 import ButtonPage from './pages/ButtonPage';
+import TogglePage from './pages/TogglePage';
 
 function App() {
   	return (
@@ -11,8 +12,9 @@ function App() {
 				<Navigation />
 				<main className="content">
 					<Routes>
-            <Route path="/input" element={<InputPage />} />
+            			<Route path="/input" element={<InputPage />} />
 						<Route path="/button" element={<ButtonPage />} />
+						<Route path="/toggle" element={<TogglePage />} />
 					</Routes>
 				</main>
 			</div>
