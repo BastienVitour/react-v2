@@ -1,0 +1,22 @@
+.navbar-main {
+    z-index: 1;
+    flex: 1;
+    max-width: 250px;
+    height: 100%;
+    border-right: 2px solid darkgray;
+}
+
+.navbar-main .navbar-item {
+    display: block;
+    padding: 10px 0;
+    margin: 5px 0;
+    cursor: pointer;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+
+.navbar-main .navbar-item:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
