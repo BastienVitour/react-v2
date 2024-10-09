@@ -7,6 +7,10 @@ const componentList: ComponentLink[] = [
     {
         text: "Input",
         link: "/input"
+    },
+    {
+        text: "Select",
+        link: "/select"
     }
 ];
 

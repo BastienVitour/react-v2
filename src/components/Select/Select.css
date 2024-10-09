@@ -1,0 +1,8 @@
+/* .select {
+    border-radius: %;
+} */
+
+
+.select:focus {
+    border-radius: 20px;
+}
