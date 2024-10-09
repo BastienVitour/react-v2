@@ -57,7 +57,12 @@ export default function ButtonPage() {
                 <option value="info">Info</option>
             </select>
             <label htmlFor="disabled-checkbox">Disabled ?</label>
-            <input name="disabled-checkbox" type="checkbox" onChange={(e) => dispatch({ type: "SET_BUTTON_DISABLED", payload: e.target.checked })} />
+            <input
+                id="disabled-checkbox"
+                name="disabled-checkbox" 
+                type="checkbox" 
+                onChange={(e) => dispatch({ type: "SET_BUTTON_DISABLED", payload: e.target.checked })} 
+            />
         </div>
     );
 
