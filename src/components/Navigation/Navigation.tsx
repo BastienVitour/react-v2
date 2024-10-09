@@ -1,4 +1,4 @@
-import "./navigation.css";
+import "./navigation.scss";
 import NavigationItem from "./NavigationItem";
 import componentList from "../../utils/ComponentList";
 

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Navigation from './components/Navigation/Navigation';
+import ButtonPage from './pages/ButtonPage';
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
 				<Navigation />
 				<main className="content">
 					<Routes>
-						{/* <Route path="/" element={} /> */}
+						<Route path="/button" element={<ButtonPage />} />
 					</Routes>
 				</main>
 			</div>
