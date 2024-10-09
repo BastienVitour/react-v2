@@ -1,8 +1,43 @@
-/* .select {
-    border-radius: %;
-} */
-
-
-.select:focus {
-    border-radius: 20px;
+.select {
+    border-radius: 5px;
+    background-color: white;
 }
+
+.select-xs {
+    font-size: x-small;
+}
+
+.select-sm {
+    font-size: small;
+}
+
+.select-md {
+    font-size: medium;
+}
+
+.select-lg {
+    font-size: large;
+}
+
+.select-xl {
+    font-size: x-large;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+  }
+  
+  /* Style items (options): */
+  .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
