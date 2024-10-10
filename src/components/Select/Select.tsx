@@ -1,13 +1,12 @@
-import "./Select.css";
+import "./Select.scss";
 import SelectProps from "./SelectProps";
 
 export default function Select({ ...props }: SelectProps) {
   return (
     <select
-      className={`select select-${props.size ? props.size : "md"}`}
+      className={`select-component select-${props.size ? props.size : "md"}`}
       name={props.name ? props.name : undefined}
       id={props.id ? props.id : undefined}
-      size={props.size ? props.size : undefined}
       autoComplete={props.autoComplete ? props.autoComplete : undefined}
       form={props.form ? props.form : undefined}
       disabled={props.disabled ? props.disabled : false}

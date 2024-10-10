@@ -3,6 +3,7 @@ import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import InputPage from "./pages/InputPage";
 import ButtonPage from "./pages/ButtonPage";
+import SelectPage from "./pages/SelectPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/input" element={<InputPage />} />
             <Route path="/button" element={<ButtonPage />} />
+            <Route path="/select" element={<SelectPage />} />
           </Routes>
         </main>
       </div>

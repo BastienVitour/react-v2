@@ -4,7 +4,7 @@ export default interface SelectProps {
   children?: ReactNode;
   name?: string;
   id?: string;
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
   disabled?: boolean;
   required?: boolean;
   autoComplete?: string;
