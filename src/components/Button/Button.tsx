@@ -5,9 +5,10 @@ export default function Button({ ...props }: Readonly<ButtonProps>) {
 
     return(
         <button 
-            onClick={props.click ? props.click : undefined} 
-            className={`btn btn-${props.variant ? props.variant : "primary"} btn-${props.size ? props.size : "md"}`}
+            onClick={props.onClick ? props.onClick : undefined} 
+            className={`btn btn-${props.variant ? props.variant : "primary"} btn-${props.size ? props.size : "md"} ` + (props.class ? props.class : "")}
             disabled={props.disabled ? props.disabled : false}
+            style={props.style ? props.style : {}}
         >
             {
                 props.children
