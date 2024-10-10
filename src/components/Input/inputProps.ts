@@ -1,4 +1,4 @@
-type InputFieldProps = {
+export default interface InputFieldProps {
     type: 'text' | 'email' | 'password' | 'number' | 'date';
     label?: string;
     value?: string;
@@ -15,5 +15,3 @@ type InputFieldProps = {
     size?: 'small' | 'medium' | 'large';
     width?: string;
 };
-
-export default InputFieldProps;
