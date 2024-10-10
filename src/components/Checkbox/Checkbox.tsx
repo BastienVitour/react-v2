@@ -1,34 +1,59 @@
+import React, { useEffect, useRef, useState } from 'react';
 import CheckboxProps from './checkboxProps';
 import './checkbox.css';
 
 const Checkbox: React.FC<CheckboxProps> = ({
     label,
-    checked = false,
-    onChange,
+    checked,
+    classes = '',
+    variant = 'primary',
+    size = 'md',
+    defaultChecked = false,
     disabled = false,
+    id,
+    indeterminate = false,
+    onChange,
+    value,
+    required = false,
 }) => {
+    const [isChecked, setIsChecked] = useState<boolean>(defaultChecked);
+    const checkboxRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (checkboxRef.current && checkboxRef.current.indeterminate !== indeterminate) {
+            checkboxRef.current.indeterminate = indeterminate;
+        }
+    }, [indeterminate]);
+
+    useEffect(() => {
+        if (checked !== undefined && checked !== isChecked) {
+            setIsChecked(checked);
+        }
+    }, [checked, isChecked]);
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(event.target.checked);
+        const newChecked = event.target.checked;
+        setIsChecked(newChecked);
+        onChange?.(newChecked);
     };
 
     return (
-        <div className="checkbox-container">
+        <div className={`checkbox ${classes} checkbox-${variant} checkbox-${size} ${disabled ? 'checkbox-disabled' : ''}`}>
             <input
+                id={id}
                 type="checkbox"
-                checked={checked}
+                ref={checkboxRef}
+                checked={isChecked}
                 onChange={handleChange}
                 disabled={disabled}
                 className="checkbox-input"
-                id={`checkbox-${label?.replace(/\s+/g, '-').toLowerCase()}`}
+                value={value}
+                data-indeterminate={indeterminate}
+                required={required}
+                aria-checked={indeterminate ? 'mixed' : isChecked}
+                aria-labelledby={id ? `${id}-label` : undefined}
             />
-            {label && (
-                <label
-                    htmlFor={`checkbox-${label?.replace(/\s+/g, '-').toLowerCase()}`}
-                    className="checkbox-label"
-                >
-                    {label}
-                </label>
-            )}
+            {label && <label id={`${id}-label`} htmlFor={id} className="checkbox-label">{label}</label>}
         </div>
     );
 };
