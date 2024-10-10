@@ -1,0 +1,109 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-primary { background-color: var(--primary-color); color: white; }
+.card-secondary { background-color: var(--secondary-color); color: white; }
+.card-danger { background-color: var(--danger-color); color: white; }
+.card-success { background-color: var(--success-color); color: white; }
+.card-warning { background-color: var(--warning-color); color: white; }
+.card-info { background-color: var(--info-color); color: white; }
+
+.card-xs { padding: 8px; }
+.card-sm { padding: 12px; }
+.card-md { padding: 16px; }
+.card-lg { padding: 20px; }
+.card-xl { padding: 24px; }
+
+.card-title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #333;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.card-image-top .card-image {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-image-bottom .card-image {
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+  margin-top: 8px;
+}
+
+.card-image-left .card-content-with-image,
+.card-image-right .card-content-with-image {
+  display: flex;
+  gap: 16px;
+}
+
+.card-image-left .card-image-side,
+.card-image-right .card-image-side {
+  width: 150px;
+  border-radius: 8px;
+}
+
+.card-image-left .card-content-with-image {
+  flex-direction: row;
+}
+
+.card-image-right .card-content-with-image {
+  flex-direction: row-reverse;
+}
+
+.card-horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 12px;
+  }
+  .card-title {
+    font-size: 1rem;
+  }
+  .card-description {
+    font-size: 0.875rem;
+  }
+  .card-image-side {
+    width: 100px;
+  }
+}
