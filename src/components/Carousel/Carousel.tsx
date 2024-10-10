@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Carousel({ ...props }: CarouselProps) {
 
     const carouselItems = useRef(null);
+    const carouselPagination = useRef(null);
     const [active, setActive] = useState<number>(0);
 
     const handleSlideChange = (direction: number) => {
@@ -51,7 +52,7 @@ export default function Carousel({ ...props }: CarouselProps) {
 
         <div 
             className={`carousel-main ` + (props.class ? props.class : "")}
-            style={props.style ? props.style : {}}
+            style={Object.assign({"width": props.width ? props.width : "max-content"}, props.style ? props.style : {})}
         >
             
             <div className="carousel-items" ref={carouselItems}>
@@ -73,11 +74,15 @@ export default function Carousel({ ...props }: CarouselProps) {
 
             {
                 props.pagination !== undefined && props.pagination && 
-                <div className="carousel-pagination">
+                <div ref={carouselPagination} className="carousel-pagination">
                     {
                         Array.from(props.children).map((_, index) => {
                             return(
-                                <div key={index} onClick={() => setActive(index)} className={`carousel-page ${index === active && "active"}`}></div>
+                                <div 
+                                    key={index}
+                                    onClick={() => setActive(index)}
+                                    className={`carousel-page ${index === active && "active"}`}
+                                ></div>
                             );
                         })
                     }
