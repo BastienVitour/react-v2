@@ -24,7 +24,6 @@
     height: 1rem;
     margin-right: 8px;
     border-radius: 4px;
-    cursor: pointer;
     transition: accent-color 0.2s, border-color 0.2s;
 }
 
@@ -52,7 +51,6 @@
     accent-color: var(--info-color);
 }
 
-/* Responsive sizes */
 .checkbox-xs .checkbox-input {
     width: 0.75rem;
     height: 0.75rem;
@@ -81,4 +79,5 @@
 .checkbox-label {
     font-size: inherit;
     color: inherit;
+    cursor: pointer;
 }

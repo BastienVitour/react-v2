@@ -37,8 +37,17 @@ const Checkbox: React.FC<CheckboxProps> = ({
         onChange?.(newChecked);
     };
 
+    const handleClick = () => {
+        if (!disabled && checkboxRef.current) {
+            checkboxRef.current.click();
+        }
+    };
+
     return (
-        <div className={`checkbox ${classes} checkbox-${variant} checkbox-${size} ${disabled ? 'checkbox-disabled' : ''}`}>
+        <div
+            className={`checkbox ${classes} checkbox-${variant} checkbox-${size} ${disabled ? 'checkbox-disabled' : ''}`}
+            onClick={handleClick}
+        >
             <input
                 id={id}
                 type="checkbox"
@@ -51,9 +60,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
                 data-indeterminate={indeterminate}
                 required={required}
                 aria-checked={indeterminate ? 'mixed' : isChecked}
-                aria-labelledby={id ? `${id}-label` : undefined}
             />
-            {label && <label id={`${id}-label`} htmlFor={id} className="checkbox-label">{label}</label>}
+            {label && <label htmlFor={id} className="checkbox-label">{label}</label>}
         </div>
     );
 };
