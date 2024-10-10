@@ -41,3 +41,29 @@
     background-color: #cff4fc;
     border-color: #9eeaf9;
 }
+
+.vertical-top {
+    top: 5%;
+}
+
+.vertical-middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.vertical-bottom {
+    bottom: 5%;
+}
+
+.horizontal-start {
+    left: 5%;
+}
+
+.horizontal-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.horizontal-end {
+    right: 5%;
+}

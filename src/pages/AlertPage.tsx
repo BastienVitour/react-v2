@@ -45,7 +45,7 @@ export default function AlertPage() {
             <Button>
                 Show alert
             </Button>
-            <Alert variant="secondary" verticalAlign="top" horizontalAlign="end">
+            <Alert variant="secondary" verticalAlign="bottom" horizontalAlign="end">
                 This is an alert
             </Alert>
         </>
