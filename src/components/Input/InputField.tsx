@@ -1,19 +1,6 @@
 import React, { useState, ChangeEvent, FocusEvent } from 'react';
 import './input.css';
-
-type InputFieldProps = {
-    type: 'text' | 'email' | 'password' | 'number' | 'date';
-    label?: string;
-    value?: string;
-    required?: boolean;
-    minLength?: number;
-    maxLength?: number;
-    pattern?: RegExp;
-    placeholder?: string;
-    disabled?: boolean;
-    readOnly?: boolean;
-    onChange?: (value: string) => void;
-};
+import InputFieldProps from './inputProps';
 
 const InputField: React.FC<InputFieldProps> = ({
     type,
@@ -27,6 +14,10 @@ const InputField: React.FC<InputFieldProps> = ({
     disabled = false,
     readOnly = false,
     onChange,
+    color = '#333',
+    backgroundColor = '#fff',
+    size = 'medium',
+    width = '100%',
 }) => {
     const [error, setError] = useState<string | null>(null);
 
@@ -49,19 +40,28 @@ const InputField: React.FC<InputFieldProps> = ({
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
         setError(validate(newValue));
-        if (onChange) {
-            onChange(newValue);
-        }
+        onChange?.(newValue);
     };
 
     const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
         setError(validate(event.target.value));
     };
 
+    const inputId = label ? `input-${label.replace(/\s+/g, '-').toLowerCase()}` : undefined;
+
+    const inputStyles = {
+        color,
+        backgroundColor,
+        width,
+        fontSize: size === 'small' ? '0.875rem' : size === 'large' ? '1.25rem' : '1rem',
+        padding: size === 'small' ? '6px' : size === 'large' ? '12px' : '8px',
+    };
+
     return (
-        <div className="input-field-container">
-            {label && <label className="input-label">{label}</label>}
+        <div className="input-field-container" style={{ width }}>
+            {label && <label htmlFor={inputId} className="input-label">{label}</label>}
             <input
+                id={inputId}
                 type={type}
                 value={value}
                 placeholder={placeholder}
@@ -70,9 +70,14 @@ const InputField: React.FC<InputFieldProps> = ({
                 disabled={disabled}
                 readOnly={readOnly}
                 className={`input-field ${error ? 'error' : ''}`}
+                style={inputStyles}
                 aria-invalid={!!error}
+                aria-describedby={error ? `${inputId}-error` : undefined}
+                required={required}
+                minLength={minLength ?? undefined}
+                maxLength={maxLength ?? undefined}
             />
-            {error && <span className="error-message">{error}</span>}
+            {error && <span id={`${inputId}-error`} className="error-message" role="alert">{error}</span>}
         </div>
     );
 };
