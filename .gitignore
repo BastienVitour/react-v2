@@ -25,3 +25,6 @@ dist-ssr
 
 bun.lockb
 package-lock.json
+
+/coverage
+*storybook.log

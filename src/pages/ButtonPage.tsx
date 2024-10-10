@@ -47,13 +47,17 @@ function buttonReducer(state: ButtonReducerState, action: ButtonReducerAction) {
     }
 }
 
+function ClickButton() {
+    console.log("Button was clicked")
+}
+
 export default function ButtonPage() {
 
     const [state, dispatch] = useReducer(buttonReducer, initialState)
 
     return(
         <div>
-            <Button text={state.text} variant={state.variant} disabled={state.disabled} size={state.size} />
+            <Button click={ClickButton} text={state.text} variant={state.variant} disabled={state.disabled} size={state.size} />
             <input onChange={(e) => dispatch({ type: "SET_BUTTON_TEXT", payload: e.target.value })} />
             <select defaultValue="primary" onChange={(e) => dispatch({ type: "SET_BUTTON_VARIANT", payload: e.target.value })}>
                 <option value="primary">Primary</option>
