@@ -4,6 +4,7 @@ import Navigation from './components/Navigation/Navigation';
 import InputPage from './pages/InputPage';
 import ButtonPage from './pages/ButtonPage';
 import TogglePage from './pages/TogglePage';
+import AlertPage from './pages/AlertPage';
 
 function App() {
   	return (
@@ -15,6 +16,7 @@ function App() {
             			<Route path="/input" element={<InputPage />} />
 						<Route path="/button" element={<ButtonPage />} />
 						<Route path="/toggle" element={<TogglePage />} />
+						<Route path="/alert" element={<AlertPage />} />
 					</Routes>
 				</main>
 			</div>

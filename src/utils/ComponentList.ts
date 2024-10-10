@@ -15,6 +15,10 @@ const componentList: ComponentLink[] = [
     {
         text: "Toggle",
         link: "/toggle"
+    },
+    {
+        text: "Alert",
+        link: "/alert"
     }
 ];
 
