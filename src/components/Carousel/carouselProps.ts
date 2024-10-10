@@ -5,4 +5,6 @@ export default interface CarouselProps {
     pagination?: boolean;
     autoplay?: boolean;
     autoplayTimer?: number;
+    class?: string;
+    style?: Record<string, string>
 }

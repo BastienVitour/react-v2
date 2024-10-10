@@ -7,4 +7,6 @@ export default interface ToggleProps {
     checkedForegroundColor?: string;
     disabled?: boolean;
     onChange?: (...args: any[]) => void;
+    class?: string;
+    style?: Record<string, string>;
 }

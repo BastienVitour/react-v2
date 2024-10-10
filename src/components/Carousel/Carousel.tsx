@@ -49,13 +49,16 @@ export default function Carousel({ ...props }: CarouselProps) {
 
     return(
 
-        <div className="carousel-main">
+        <div 
+            className={`carousel-main ` + (props.class ? props.class : "")}
+            style={props.style ? props.style : {}}
+        >
             
             <div className="carousel-items" ref={carouselItems}>
                 {
                     props.children.map((element, index) => {
                         return(
-                            <div className={`carousel-item ${index === active && "active"}`}>{element}</div>
+                            <div key={index} className={`carousel-item ${index === active && "active"}`}>{element}</div>
                         );
                     })
                 }
@@ -74,7 +77,7 @@ export default function Carousel({ ...props }: CarouselProps) {
                     {
                         Array.from(props.children).map((_, index) => {
                             return(
-                                <div onClick={() => setActive(index)} className={`carousel-page ${index === active && "active"}`}></div>
+                                <div key={index} onClick={() => setActive(index)} className={`carousel-page ${index === active && "active"}`}></div>
                             );
                         })
                     }

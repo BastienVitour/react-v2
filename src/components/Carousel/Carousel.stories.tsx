@@ -10,7 +10,55 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    pagination: { control: "boolean" }
+	autoplay: {
+		control: "boolean",
+		description: "If true, automatically goes to the next slide after some time",
+		table: {
+			defaultValue: {
+				summary: "false"
+			}
+		}
+	},
+	autoplayTimer: {
+		control: "number",
+		description: "The amount of time (in ms) before the carousel goes to the next slide",
+		table: {
+			defaultValue: {
+				summary: "3000"
+			}
+		}
+	},
+	children: {
+		control: "object",
+		description: "The elements that are passed inside the carousel. Each element represents one slide."
+	},
+	class: {
+		control: "text",
+		description: "Custom classes to add to the carousel",
+		table: {
+		  defaultValue: {
+			summary: ""
+		  }
+		}
+	},
+    pagination: {
+		control: "boolean",
+		description: "If true, adds a pagination at the bottom of the carousel",
+		table: {
+			defaultValue: {
+				summary: "false"
+			}
+		}
+	},
+	style: {
+		control: "object",
+		description: "Custom styles to add to the carousel",
+		table: {
+		  defaultValue: {
+			summary: "{}"
+		  }
+		}
+	  },
   },
 } satisfies Meta<typeof Carousel>;
 

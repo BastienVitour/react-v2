@@ -9,11 +9,97 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    checkedBackgroundColor: {
+      control: "color",
+      description: "The color of the background of the toggle when it is checked",
+      table: {
+        defaultValue: {
+          summary: "#2196F3"
+        }
+      }
+    },
+    checkedForegroundColor: {
+      control: "color",
+      description: "The color of the foreground of the toggle when it is checked",
+      table: {
+        defaultValue: {
+          summary: "white"
+        }
+      }
+    },
+    class: {
+      control: "text",
+      description: "Custom classes to add to the toggle",
+      table: {
+        defaultValue: {
+          summary: ""
+        }
+      }
+    },
+    disabled: {
+      control: 'boolean',
+      description: "If true, the component is disabled.",
+      table: {
+        defaultValue: {
+          summary: "false"
+        }
+      }
+    },
+    label: {
+      control: "text",
+      description: "The label that describes the toggle",
+      table: {
+        defaultValue: {
+          summary: "Toggle"
+        }
+      }
+    },
+    onChange: {
+      action: "changed",
+      description: "Callback fired when the toggle is changed",
+      table: {
+        defaultValue: {
+          summary: "(e) => {}"
+        }
+      }
+    },
+    style: {
+      control: "object",
+      description: "Custom styles to add to the toggle",
+      table: {
+        defaultValue: {
+          summary: "{}"
+        }
+      }
+    },
+    uncheckedBackgroundColor: {
+      control: "color",
+      description: "The color of the background of the toggle when it is unchecked",
+      table: {
+        defaultValue: {
+          summary: "lightgrey"
+        }
+      }
+    },
+    uncheckedForegroundColor: {
+      control: "color",
+      description: "The color of the foreground of the toggle when it is unchecked",
+      table: {
+        defaultValue: {
+          summary: "white"
+        }
+      }
+    },
     variant: {
       control: 'radio',
       options: ['rectangular', 'rounded'],
+      description: "The shape of the toggle",
+      table: {
+        defaultValue: {
+          summary: "rounded"
+        }
+      }
     },
-    disabled: { control: 'boolean' },
   },
 } satisfies Meta<typeof Toggle>;
 
