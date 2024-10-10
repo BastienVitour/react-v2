@@ -15,7 +15,10 @@ export default function Toggle({ ...props }: ToggleProps) {
 
     return(
 
-        <label className={`toggle-main ${props.disabled !== undefined ? props.disabled ? "disabled" : "": ""}`}>
+        <label 
+            className={`toggle-main ${props.disabled !== undefined ? props.disabled ? "disabled" : "": ""} ` + (props.class ? props.class : "")}
+            style={props.style ? props.style : {}}
+        >
             {props.label ? props.label : "Toggle"}
             <input
                 ref={input}
