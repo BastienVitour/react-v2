@@ -10,6 +10,10 @@ type InputFieldProps = {
     disabled?: boolean;
     readOnly?: boolean;
     onChange?: (value: string) => void;
+    color?: string;
+    backgroundColor?: string;
+    size?: 'small' | 'medium' | 'large';
+    width?: string;
 };
 
 export default InputFieldProps;
