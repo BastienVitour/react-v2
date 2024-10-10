@@ -1,0 +1,39 @@
+.select {
+    border-radius: 5px;
+    background-color: white;
+}
+
+.select-xs {
+    font-size: x-small;
+}
+
+.select-sm {
+    font-size: small;
+}
+
+.select-md {
+    font-size: medium;
+}
+
+.select-lg {
+    font-size: large;
+}
+
+.select-xl {
+    font-size: x-large;
+}
+
+.select-component::part(button) {
+    color: white;
+    background-color: rgb(130, 184, 255);
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .select-component::part(listbox) {
+    padding: 10px;
+    background-color: rgb(130, 184, 255);
+    margin-top: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+  }
