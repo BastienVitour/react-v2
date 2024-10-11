@@ -1,16 +1,10 @@
 import { ReactNode } from "react";
 
-export interface TabListProps {
-  label?: string;
-  onClick?: (...args: any[]) => void;
-  children?: ReactNode;
-}
-
-export interface TabPanelProps {
-  children?: ReactNode;
-}
-
 export interface TabsProps {
+  onClick?: (...args: any[]) => void;
+  id: string;
+  label?: string;
   children?: ReactNode;
   color?: string;
+  enabled?: boolean;
 }

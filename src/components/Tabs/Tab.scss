@@ -1,8 +1,9 @@
 .tabPanel {
+  visibility: none;
   display: none;
 }
 
-.tabPanel-enabled {
+.active {
   display: block;
   flex-grow: 1;
 }

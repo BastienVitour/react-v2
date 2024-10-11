@@ -1,22 +1,25 @@
 import { useState } from "react";
-import { TabsProps, TabListProps, TabPanelProps } from "./TabProps";
+import { TabsProps } from "./TabProps";
 import Button from "../Button/Button";
+import "./Tab.scss";
 
-function TabPanel({ ...props }: TabPanelProps) {
-  return <>{props.children}</>;
+function TabPanel({ ...props }: TabsProps) {
+  return (
+    <div className={`tabPanel ${props.enabled ? "active" : ""}`}>
+      {props.children}
+    </div>
+  );
 }
 
 function TabList({ ...props }: TabsProps) {
   return <div>{props.children}</div>;
 }
 
-function TabButton({ ...props }: TabListProps) {
-  return <Button onClick={props.onClick}>{props.label}</Button>;
+function TabButton({ ...props }: TabsProps) {
+  return <Button onClick={setSelectedTab(props.id)}>{props.label}</Button>;
 }
 
 function TabContext({ ...props }: TabsProps) {
-  const [selectedTab, setSelectedTab] = useState<string>();
-
   return <>{props.children}</>;
 }
 
