@@ -45,24 +45,6 @@ export const Default: Story = {
     },
 };
 
-export const Interactive: Story = {
-    render: (args) => {
-        const { isOpen, openModal, closeModal } = useModal();
-        return (
-            <div className="modal-story-container">
-                <Button onClick={openModal} text="Open Modal" variant="primary" size="md" />
-                {isOpen && (
-                    <Modal isOpen={isOpen} onClose={closeModal} overlayColor={args.overlayColor}>
-                        <h2>Interactive Modal</h2>
-                        <p>This modal can be opened and closed using the button.</p>
-                        <Button onClick={closeModal} text="Close Modal" variant="secondary" size="sm" />
-                    </Modal>
-                )}
-            </div>
-        );
-    },
-};
-
 export const NoCloseButtons: Story = {
     render: (args) => {
         const { isOpen, openModal, closeModal } = useModal();
