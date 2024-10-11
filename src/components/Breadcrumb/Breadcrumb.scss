@@ -1,0 +1,26 @@
+.breadcrumb {
+  display: flex;
+  flex-direction: row;
+}
+
+.breadcrumb-element {
+  margin: 10px;
+}
+
+.breadcrumb * {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #828282;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #5e5e5e;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.breadcrumb-underlined a:hover {
+  color: #5e5e5e;
+  text-decoration: underline;
+  cursor: pointer;
+}

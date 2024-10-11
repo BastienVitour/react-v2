@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Select from "./Select";
 
 const meta = {
-  title: "Components/Select",
+  title: "Components/Atoms/Select",
   component: Select,
   parameters: {
     layout: "centered",
@@ -10,19 +10,45 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     size: {
-      id: undefined,
-      children: undefined,
-      name: undefined,
-      disabled: { control: "boolean" },
-      required: false,
-      autoComplete: undefined,
-      autoFocus: undefined,
-      multiple: { control: "boolean" },
-      form: undefined,
-      control: "select",
       options: ["xs", "sm", "md", "lg", "xl"],
     },
-    disabled: { control: "boolean" },
+    id: {
+      description: "Id of the select for DOM access.",
+      control: "text",
+    },
+    children: {
+      description:
+        "Children of the select. Usually `<option/>` or `<optgroup/>`.",
+      control: "text",
+    },
+    name: {
+      description: "Name of the select.",
+      control: "text",
+    },
+    disabled: {
+      description: "Disable or enable the element.",
+      control: "boolean",
+    },
+    required: {
+      description: "Set the required attribute. Mainly for forms.",
+      control: "boolean",
+    },
+    autoComplete: {
+      description: "Sets the autocomplete attribute.",
+      control: "text",
+    },
+    autoFocus: {
+      description: "Sets the autofocus attribute.",
+      control: "boolean",
+    },
+    multiple: {
+      description: "Allows to select multiple options at once.",
+      control: "boolean",
+    },
+    form: {
+      description: "Reference to the form (id) the element is linked to.",
+      control: "text",
+    },
   },
   args: {
     size: "md",
@@ -39,8 +65,23 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const SmallSize: Story = {
   args: {
     size: "xs",
+  },
+};
+
+export const MediumSizeMultipleRequired: Story = {
+  args: {
+    size: "md",
+    multiple: true,
+    required: true,
+  },
+};
+
+export const LargeSizeDisabled: Story = {
+  args: {
+    size: "lg",
+    disabled: true,
   },
 };
