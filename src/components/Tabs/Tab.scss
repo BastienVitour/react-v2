@@ -1,0 +1,18 @@
+.tabPanel {
+  display: none;
+}
+
+.tabPanel-enabled {
+  display: block;
+  flex-grow: 1;
+}
+
+.tabList {
+  display: flex;
+  flex-direction: row;
+  max-height: 60px;
+}
+
+.tabButton {
+  flex-grow: 1;
+}
