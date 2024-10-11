@@ -1,0 +1,37 @@
+.table-main {
+    border: 2px solid black;
+    border-collapse: collapse;
+
+    .table-header-cell {
+        cursor: pointer;
+        width: max-content;
+
+        .table-header-cell-content {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    td, th {
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    .table-footer-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .pagination {
+            display: flex;
+            gap: 5px;
+        }
+
+        .pagination-params {
+            display: flex;
+            gap: 5px;
+        }
+    }
+
+}
