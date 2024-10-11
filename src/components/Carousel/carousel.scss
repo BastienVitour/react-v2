@@ -1,0 +1,96 @@
+.carousel-main {
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    min-width: 8rem;
+    
+    .carousel-items {
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+
+        .carousel-item {
+            transition-duration: 0.4s;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+    
+            &:not(.active) {
+                display: none;
+            }
+
+            * {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .arrow-container {
+        position: absolute;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        aspect-ratio: 1;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    .arrow-container-prev {
+        left: 3%;
+    }
+
+    .arrow-container-next {
+        right: 3%;
+    }
+
+    .carousel-previous {
+        border-left: 2px solid lightgray;
+        border-bottom: 2px solid lightgray;
+        border-top: none;
+        border-right: none;
+        transform: rotate(45deg);
+        width: 25px;
+        aspect-ratio: 1;
+    }
+
+    .carousel-next {
+        border-right: 2px solid lightgray;
+        border-top: 2px solid lightgray;
+        border-left: none;
+        border-bottom: none;
+        transform: rotate(45deg);
+        width: 25px;
+        aspect-ratio: 1;
+        
+    }
+
+    .carousel-pagination {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        max-width: 50%;
+
+        .carousel-page {
+            width: 50px;
+            height: 2px;
+            background-color: lightgray;
+            cursor: pointer;
+
+            &.active {
+                background-color: black;
+            }
+        }
+
+    }
+}
