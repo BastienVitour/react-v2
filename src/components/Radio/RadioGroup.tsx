@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RadioProps } from './radioProps';
+import RadioProps  from './radioProps';
 import { RadioGroupProps } from './radiogroupProps';
 import Radio from './Radio';
 

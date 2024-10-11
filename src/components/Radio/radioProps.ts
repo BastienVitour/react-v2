@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 
-export interface RadioProps {
+export default interface RadioProps {
   id?: string;
   label?: string;
   required?: boolean;
