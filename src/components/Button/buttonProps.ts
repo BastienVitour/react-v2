@@ -7,4 +7,5 @@ export default interface ButtonProps {
     disabled?: boolean;
     children?: string | ReactNode[],
     size?: "xs" | "sm" | "md" | "lg" | "xl"
+    className?: string;
 }
