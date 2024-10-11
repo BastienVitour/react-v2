@@ -1,22 +1,43 @@
-import AlertProps from "./alertProps";
-import "./alert.scss";
+import React, { useEffect, useState } from 'react';
+import AlertProps from './alertProps';
+import './alert.scss';
+import Button from '../Button/Button';
 
-export default function Alert({ ...props }: AlertProps) {
+const Alert: React.FC<AlertProps> = ({
+    text,
+    type = 'success',
+    children,
+    autoClose = false,
+    duration = 3000,
+    onClose,
+}) => {
+    const [visible, setVisible] = useState(true);
 
-    return(
+    useEffect(() => {
+        if (autoClose) {
+            const timer = setTimeout(() => {
+                setVisible(false);
+                if (onClose) onClose();
+            }, duration);
 
-        <div 
-            className={`alert alert-${props.variant ? props.variant : "primary"} horizontal-${props.horizontalAlign ? props.horizontalAlign : "middle"} vertical-${props.verticalAlign ? props.verticalAlign : "center"}`}
-        >
-            {
-                props.children
-                ? 
-                props.children
-                :
-                props.text ? props.text : "Alert"
-            }
+            return () => clearTimeout(timer);
+        }
+    }, [autoClose, duration, onClose]);
+
+    if (!visible) return null;
+
+    return (
+        <div className={`alert alert-${type}`}>
+            <span className="alert-text">{text}</span>
+            {children && <div className="alert-children">{children}</div>}
+            <Button className="alert-close-button" click={() => {
+                setVisible(false);
+                if (onClose) onClose();
+            }}>
+                &times;
+            </Button>
         </div>
-
     );
+};
 
-}
+export default Alert;

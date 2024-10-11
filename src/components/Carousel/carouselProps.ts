@@ -6,5 +6,6 @@ export default interface CarouselProps {
     autoplay?: boolean;
     autoplayTimer?: number;
     class?: string;
-    style?: Record<string, string>
+    style?: Record<string, string>;
+    width?: string;
 }

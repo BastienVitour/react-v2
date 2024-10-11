@@ -5,9 +5,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    aspect-ratio: 1;
-    width: 500px;
+    aspect-ratio: 4 / 3;
     position: relative;
+    min-width: 8rem;
     
     .carousel-items {
         max-width: 100%;
@@ -34,7 +34,6 @@
 
     .arrow-container {
         position: absolute;
-        // top: 50%;
         background-color: transparent;
         border: none;
         outline: none;
@@ -80,14 +79,16 @@
         display: flex;
         justify-content: space-between;
         gap: 5px;
+        max-width: 50%;
 
         .carousel-page {
             width: 50px;
-            border-bottom: 2px solid lightgray;
+            height: 2px;
+            background-color: lightgray;
             cursor: pointer;
 
             &.active {
-                border-color: black;
+                background-color: black;
             }
         }
 

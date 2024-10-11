@@ -59,6 +59,15 @@ const meta = {
 		  }
 		}
 	  },
+	width: {
+		control: "text",
+		description: "Controls the width of the carousel (min-width: 8rem / 128px)",
+		table: {
+		  defaultValue: {
+			summary: "max-content"
+		  }
+		}
+	  },
   },
 } satisfies Meta<typeof Carousel>;
 
@@ -72,7 +81,8 @@ export const Default: Story = {
 			<b>YO</b>, 
             <p>Helo</p>, 
 			<img src="/vite.svg" />
-		]
+		],
+	width: "250px"
   }
 };
 
@@ -83,7 +93,8 @@ export const Pagination: Story = {
 			<p>Slide 2</p>, 
 			<em>Slide 3</em>
 		],
-		pagination: true
+		pagination: true,
+		width: "250px"
 	  }
 };
 
@@ -95,6 +106,7 @@ export const Autoplay: Story = {
 			<em>Slide 3</em>
 		],
 		pagination: true,
-		autoplay: true
+		autoplay: true,
+		width: "250px"
 	  }
 };

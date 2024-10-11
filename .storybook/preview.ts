@@ -1,4 +1,5 @@
-import type { Preview } from "@storybook/react";
+import type { Decorator, Preview } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
 
 const preview: Preview = {
   parameters: {
