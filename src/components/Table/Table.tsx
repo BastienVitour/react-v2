@@ -12,7 +12,6 @@ export default function Table({ ...props }: TableProps) {
     const [elementsPerPage, setElementsPerPage] = useState<number>(props.elementsPerPage ? props.elementsPerPage : 10);
 
     const handleSort = (column: string) => {
-        console.log(column);
         const initialData = [...props.data];
         
         setSortColumn(column);
@@ -24,7 +23,7 @@ export default function Table({ ...props }: TableProps) {
                         return a[column] - b[column];
                     }
                     else {
-                        return a[column].toString().localeCompare(b[column].toString())
+                        return a[column].toString().localeCompare(b[column].toString());
                     }
                 }));
                 break;
@@ -51,18 +50,9 @@ export default function Table({ ...props }: TableProps) {
             }
     }
 
-    const handlePagination = (pageNumber: number, numberOfElements: number, dataToPage?: any[]) => {
+    const handlePagination = (pageNumber: number, numberOfElements: number) => {
 
         const maxPageNumber = Math.ceil(props.data.length / (elementsPerPage ? elementsPerPage : 10));
-
-        let initialData;
-
-        if(!dataToPage) {
-            initialData = data;
-        }
-        else {
-            initialData = dataToPage;
-        }
 
         if(pageNumber <= maxPageNumber && pageNumber > 0) {
             setPage(pageNumber);
@@ -81,13 +71,16 @@ export default function Table({ ...props }: TableProps) {
 
     return(
 
-        <table className="table-main">
+        <table
+            className={`table-main ` + (props.class ? props.class : "")}
+            style={props.style ? props.style : {}}
+        >
             <thead>
                 <tr>
                     <th>Select row</th>
                     {props.columns.map((column: string) => {
                         return(
-                            <th className="table-header-cell" onClick={() => handleSort(column)}>
+                            <th key={`column-${column}`} className="table-header-cell" onClick={() => handleSort(column)}>
                                 <div className="table-header-cell-content">
                                     <span>{column}</span>
                                     {
@@ -108,14 +101,14 @@ export default function Table({ ...props }: TableProps) {
             </thead>
             <tbody>
                 {
-                    data.slice(((page-1)*elementsPerPage), page*elementsPerPage).map((item: any) => {
+                    data.slice(((page-1)*elementsPerPage), page*elementsPerPage).map((item: any, index: number) => {
                         return(
-                            <tr>
+                            <tr key={`data-${index}`}>
                                 <td onClick={handleRowSelect}></td>
                                 {
-                                    props.columns.map((key: string) => {
+                                    props.columns.map((key: string, valueIndex: number) => {
                                         return(
-                                            <td onClick={handleCellSelect}>{item[key]}</td>
+                                            <td key={`data-${index}-${valueIndex}`} onClick={handleCellSelect}>{item[key]}</td>
                                         );
                                     })
                                 }
@@ -133,7 +126,9 @@ export default function Table({ ...props }: TableProps) {
                                 {
                                     Array.from(Array(Math.ceil(props.data.length / (elementsPerPage ? elementsPerPage : 10))), (_, index) => {
                                         return(
-                                            <Button size="sm" onClick={() => handlePagination(index+1, elementsPerPage)} variant={page === index+1 ? "success" : "secondary"}>{(index+1).toString()}</Button>
+                                            <Button key={`pagination-${index+1}`} size="sm" onClick={() => handlePagination(index+1, elementsPerPage)} variant={page === index+1 ? "success" : "secondary"}>
+                                                {(index+1).toString()}
+                                            </Button>
                                         );
                                     })
                                 }

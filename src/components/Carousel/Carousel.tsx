@@ -58,22 +58,22 @@ export default function Carousel({ ...props }: CarouselProps) {
                 {
                     props.children.map((element, index) => {
                         return(
-                            <div key={index} className={`carousel-item ${index === active && "active"}`}>{element}</div>
+                            <div key={`slide-${index}`} className={`carousel-item ${index === active && "active"}`}>{element}</div>
                         );
                     })
                 }
             </div>
 
-            <button onClick={() => handleSlideChange(-1)} className="arrow-container arrow-container-prev">
+            <button data-testid="carousel-button-prev" onClick={() => handleSlideChange(-1)} className="arrow-container arrow-container-prev">
                 <div className="carousel-previous"></div>
             </button>
-            <button onClick={() => handleSlideChange(1)} className="arrow-container arrow-container-next">
+            <button data-testid="carousel-button-next" onClick={() => handleSlideChange(1)} className="arrow-container arrow-container-next">
                 <div className="carousel-next"></div>
             </button>
 
             {
                 props.pagination !== undefined && props.pagination && 
-                <div className="carousel-pagination">
+                <div className="carousel-pagination" data-testid="carousel-pagination">
                     {
                         Array.from(props.children).map((_, index) => {
                             return(
