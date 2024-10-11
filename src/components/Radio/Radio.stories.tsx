@@ -3,7 +3,7 @@ import Radio from './Radio';
 import RadioGroup from './RadioGroup';
 
 const meta: Meta<typeof RadioGroup> = {
-  title: 'Components/Radio',
+  title: 'Components/Atoms/Radio',
   component: RadioGroup,
   parameters: {
     layout: 'centered',

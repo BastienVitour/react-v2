@@ -4,7 +4,7 @@ import Breadcrumb from "./Breadcrumb";
 import { Link, MemoryRouter } from "react-router-dom";
 
 const meta = {
-  title: "Components/Breadcrumb",
+  title: "Components/Molecules/Breadcrumb",
   component: Breadcrumb,
 
   parameters: {

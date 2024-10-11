@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import { useState } from 'react';
 
 const meta: Meta<typeof Alert> = {
-    title: 'Components/Alert',
+    title: 'Components/Molecules/Alert',
     component: Alert,
     parameters: {
         layout: 'centered',
@@ -112,7 +112,7 @@ export const AlertDemoWithAutoClose: Story = {
                     <Alert type="success" text="This is a demo alert! This will autoclose in 3 seconds." autoClose={true} onClose={() => setAlertVisible(false)} />
                 )}
                 <div style={{ margin: '1rem' }}>
-                    <Button click={() => setAlertVisible(true)}>Show Alert</Button>
+                    <Button onClick={() => setAlertVisible(true)}>Show Alert</Button>
                 </div>
             </div>
         );

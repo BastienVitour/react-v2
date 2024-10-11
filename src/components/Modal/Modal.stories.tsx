@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 import './modal.css';
 
 const meta: Meta<typeof Modal> = {
-    title: 'Components/Modal',
+    title: 'Components/Organisms/Modal',
     component: Modal,
     parameters: {
         docs: {
