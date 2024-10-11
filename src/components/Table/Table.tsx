@@ -1,6 +1,6 @@
 import TableProps from "./tableProps";
 import "./table.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../Button/Button";
 
 export default function Table({ ...props }: TableProps) {
@@ -71,15 +71,20 @@ export default function Table({ ...props }: TableProps) {
         
     }
 
-    useEffect(() => {
-        handlePagination(page, elementsPerPage)
-    }, []);
+    const handleCellSelect = (e: any) => {
+        e.target.classList.toggle("cell-selected")
+    }
+
+    const handleRowSelect = (e: any) => {
+        e.target.closest("tr").classList.toggle("row-selected");
+    }
 
     return(
 
         <table className="table-main">
             <thead>
                 <tr>
+                    <th>Select row</th>
                     {props.columns.map((column: string) => {
                         return(
                             <th className="table-header-cell" onClick={() => handleSort(column)}>
@@ -106,10 +111,11 @@ export default function Table({ ...props }: TableProps) {
                     data.slice(((page-1)*elementsPerPage), page*elementsPerPage).map((item: any) => {
                         return(
                             <tr>
+                                <td onClick={handleRowSelect}></td>
                                 {
                                     props.columns.map((key: string) => {
                                         return(
-                                            <td>{item[key]}</td>
+                                            <td onClick={handleCellSelect}>{item[key]}</td>
                                         );
                                     })
                                 }

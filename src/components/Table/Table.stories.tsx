@@ -10,6 +10,15 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    class: {
+      control: "text",
+      description: "Custom classes to add to the table",
+      table: {
+        defaultValue: {
+          summary: ""
+        }
+      }
+    },
     columns: {
       control: "multi-select",
       options: ["id", "firstname", "lastname", "email", "number", "birthdate"],
@@ -28,34 +37,25 @@ const meta = {
           summary: ""
         }
       }
-    }
-	// class: {
-	// 	control: "text",
-	// 	description: "Custom classes to add to the carousel",
-	// 	table: {
-	// 	  defaultValue: {
-	// 		summary: ""
-	// 	  }
-	// 	}
-	// },
-  //   pagination: {
-	// 	control: "boolean",
-	// 	description: "If true, adds a pagination at the bottom of the carousel",
-	// 	table: {
-	// 		defaultValue: {
-	// 			summary: "false"
-	// 		}
-	// 	}
-	// },
-	// style: {
-	// 	control: "object",
-	// 	description: "Custom styles to add to the carousel",
-	// 	table: {
-	// 	  defaultValue: {
-	// 		summary: "{}"
-	// 	  }
-	// 	}
-	//   },
+    },
+    elementsPerPage: {
+      control: "number",
+      description: "The number of rows to display on each page of the table",
+      table: {
+        defaultValue: {
+          summary: "10"
+        }
+      }
+    },
+    style: {
+      control: "object",
+      description: "Custom styles to add to the table",
+      table: {
+        defaultValue: {
+            summary: "{}"
+          }
+        }
+      }
   },
 } satisfies Meta<typeof Table>;
 

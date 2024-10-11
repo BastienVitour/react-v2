@@ -17,6 +17,10 @@
         padding: 5px;
     }
 
+    .row-selected, .cell-selected {
+        background-color: lightblue;
+    }
+
     .table-footer-content {
         width: 100%;
         display: flex;
