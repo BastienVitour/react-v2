@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import InputField from './InputField';
 
 const meta: Meta<typeof InputField> = {
-  title: 'Components/InputField',
+  title: 'Components/Atoms/InputField',
   component: InputField,
   parameters: {
     layout: 'centered',

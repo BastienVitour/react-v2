@@ -4,7 +4,7 @@ import Loader from './Loader';
 import Button from '../Button/Button';
 
 const meta: Meta<typeof Loader> = {
-    title: 'Components/Loader',
+    title: 'Components/Atoms/Loader',
     component: Loader,
     parameters: {
         layout: 'centered',

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Table from './Table';
 
 const meta = {
-  title: "Components/Table",
+  title: "Components/Organisms/Table",
   component: Table,
   parameters: {
     layout: "centered"

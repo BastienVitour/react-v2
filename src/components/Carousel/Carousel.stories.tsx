@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Carousel from './Carousel';
 
 const meta = {
-  title: "Components/Carousel",
+  title: "Components/Organisms/Carousel",
   component: Carousel,
   parameters: {
     layout: "centered"
@@ -80,7 +80,7 @@ export const Default: Story = {
     children: [
 			<b>YO</b>, 
             <p>Helo</p>, 
-			<img src="/vite.svg" />
+			<img src="https://placehold.co/150" />
 		],
 	width: "250px"
   }
