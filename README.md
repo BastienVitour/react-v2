@@ -1,25 +1,25 @@
-## Getting started
+# Getting started
 
-# Clone the repository
+## Clone the repository
 
 ```bash
 git clone https://github.com/BastienVitour/react-v2.git
 cd your-repo
 ```
 
-# Install dependencies
+## Install dependencies
 ```bash
 npm install
 ```
 
-## Run application
+# Run application
 
-# Run the Vite development server
+## Run the Vite development server
 ```bash
 npm run dev
 ```
 
-# Run Storybook for component documentation
+## Run Storybook for component documentation
 ```bash
 npm run storybook
 ```
