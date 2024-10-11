@@ -12,7 +12,19 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    separator: { control: { type: "text" } },
+    separator: {
+      description: "Separator between elements. ASCII characters supported.",
+      control: { type: "text" },
+    },
+    children: {
+      description:
+        "Children of the Breadcrumb element. `<a/>` tags are supported, not custom React Router configurations.",
+      control: { type: "text" },
+    },
+    underlined: {
+      description: "Allow underlined links when mouse is hovers over.",
+      control: { type: "boolean" },
+    },
   },
   args: {
     separator: ">",

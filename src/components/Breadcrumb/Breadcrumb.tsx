@@ -4,7 +4,11 @@ import "./Breadcrumb.scss";
 
 export default function Breadcrumb({ ...props }: BreadcrumbProps) {
   return (
-    <div className="breadcrumb">
+    <div
+      className={`breadcrumb ${
+        props.underlined ? "breadcrumb-underlined" : ""
+      }`}
+    >
       {Children.map(props?.children, (child) => {
         return (
           <>
