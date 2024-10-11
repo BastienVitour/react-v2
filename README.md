@@ -23,3 +23,8 @@ npm run dev
 ```bash
 npm run storybook
 ```
+
+## Run unit test with jest
+```bash
+npm run test
+```
