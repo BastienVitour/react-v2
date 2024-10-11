@@ -17,7 +17,8 @@ const meta = {
       control: "text",
     },
     children: {
-      description: "Children of the select. Usually <option/> or <optgroup/>.",
+      description:
+        "Children of the select. Usually `<option/>` or `<optgroup/>`.",
       control: "text",
     },
     name: {
