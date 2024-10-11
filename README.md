@@ -4,7 +4,7 @@
 
 ```bash
 git clone https://github.com/BastienVitour/react-v2.git
-cd your-repo
+cd react-v2
 ```
 
 ## Install dependencies
