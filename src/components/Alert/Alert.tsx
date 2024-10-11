@@ -30,7 +30,7 @@ const Alert: React.FC<AlertProps> = ({
         <div className={`alert alert-${type}`}>
             <span className="alert-text">{text}</span>
             {children && <div className="alert-children">{children}</div>}
-            <Button className="alert-close-button" click={() => {
+            <Button variant={type} class="alert-close-button" onClick={() => {
                 setVisible(false);
                 if (onClose) onClose();
             }}>

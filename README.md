@@ -12,13 +12,6 @@ cd react-v2
 npm install
 ```
 
-# Run application
-
-## Run the Vite development server
-```bash
-npm run dev
-```
-
 ## Run Storybook for component documentation
 ```bash
 npm run storybook
