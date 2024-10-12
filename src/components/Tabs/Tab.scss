@@ -1,0 +1,35 @@
+.tabPanel {
+  visibility: none;
+  display: none;
+}
+
+.active {
+  display: block;
+  flex-grow: 1;
+}
+
+.tabList {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  max-height: 60px;
+  min-width: 300px;
+}
+
+.tabButton {
+  flex-grow: 1;
+}
+
+.tabContext {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.custom-button {
+  display: flex;
+  flex-grow: 1;
+  background-color: transparent;
+}
