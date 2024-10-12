@@ -1,33 +1,41 @@
-import { createContext, useContext } from "react";
-import { TabsProps } from "./TabProps";
+import { useState } from "react";
+import { TabsProps, TabsContextProps } from "./TabProps";
 import Button from "../Button/Button";
 import "./Tab.scss";
 
 function TabPanel({ ...props }: TabsProps) {
-  const active = useContext(TabsContext);
   return (
-    <div className={`tabPanel ${props.enabled ? "active" : ""}`}>
+    <div
+      className={`tabPanel ${props?.activeTab === props.id ? "active" : ""}`}
+    >
       {props.children}
     </div>
   );
 }
 
-function TabList({ ...props }: TabsProps) {
-  return <div className="tabList">{props.children}</div>;
-}
-
-function TabButton({ ...props }: TabsProps) {
-  return <Button onClick={props.onClick}>{props.label}</Button>;
-}
-
-function TabContext({ ...props }: TabsProps) {
-  const TabsContext = createContext(props?.defaultId);
+function TabContext({ ...props }: TabsContextProps) {
+  const [activeTab, setActiveTab] = useState<string | undefined>(
+    props?.defaultId
+  );
 
   return (
-    <TabsContext.Provider value={props?.defaultId}>
-      <div className="tabContext">{props.children}</div>
-    </TabsContext.Provider>
+    <div className="tabContext">
+      <div className="tabList">
+        {props?.list?.map((element: string) => {
+          return (
+            <Button
+              class="custom-button"
+              text={element}
+              onClick={() => {
+                setActiveTab(element);
+              }}
+            ></Button>
+          );
+        })}
+      </div>
+      {props.children ? props.children(activeTab, setActiveTab) : null}
+    </div>
   );
 }
 
-export { TabContext, TabList, TabPanel, TabButton };
+export { TabContext, TabPanel };

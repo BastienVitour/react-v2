@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TabButton, TabContext, TabList, TabPanel } from "./Tab";
+import { TabContext, TabPanel } from "./Tab";
 
 const meta = {
   title: "Components/Tabs",
@@ -27,15 +27,20 @@ const meta = {
     },
   },
   args: {
-    children: [
-      <TabList>
-        <TabButton id="1" label="Tab1" />
-        <TabButton id="2" label="Tab2" />
-      </TabList>,
-      ,
-      <TabPanel id="1">test</TabPanel>,
-      <TabPanel id="2">test</TabPanel>,
-    ],
+    list: ["tab1", "tab2"],
+    defaultId: "tab1",
+    children: (activeTab) => {
+      return (
+        <>
+          <TabPanel id="tab1" activeTab={activeTab}>
+            tab1
+          </TabPanel>
+          <TabPanel id="tab2" activeTab={activeTab}>
+            <img src="//www.html.am/images/samples/remarkables_queenstown_new_zealand-300x225.jpg" />
+          </TabPanel>
+        </>
+      );
+    },
   },
 } satisfies Meta<typeof TabContext>;
 
